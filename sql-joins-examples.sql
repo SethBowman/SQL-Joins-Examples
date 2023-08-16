@@ -24,3 +24,11 @@ ON e.EmployeeID = s.EmployeeID;
 SELECT * FROM Employees AS e
 LEFT JOIN Sales as s 
 ON e.EmployeeID = s.EmployeeID;
+
+-- You can use multiple joins
+-- Using this shows what employee sold what product and how much it costs
+
+SELECT p.Name AS "Product Sold", p.Price, s.Quantity AS "Amount Sold", e.FirstName, e.LastName
+FROM Products AS p
+INNER JOIN Sales AS s on p.ProductID = s.ProductID
+INNER JOIN Employees AS e on s.EmployeeID = e.EmployeeID;
